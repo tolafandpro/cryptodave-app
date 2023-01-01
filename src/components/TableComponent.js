@@ -5,7 +5,7 @@ import { CryptoContext } from './../context/CryptoContext';
 
 const TableComponent = () => {
     
-    let {cryptoData} = useContext(CryptoContext);
+    let {cryptoData, currency} = useContext(CryptoContext);
 
     return ( 
         <div className="flex flex-col mt-9 border border-gray-100 rounded">
@@ -55,7 +55,7 @@ const TableComponent = () => {
                                     </td>
                                     <td className="py-4">{data.name}</td>
                                     <td className="py-4">{
-                                        new Intl.NumberFormat("en-NG", {style: "currency",currency: "ngn"}).format(data.current_price)
+                                        new Intl.NumberFormat("en-NG", {style: "currency", currency}).format(data.current_price)
                                     }</td>
                                     <td className="py-4">{data.total_volume}</td>
                                     <td className="py-4">{data.market_cap_change_percentage_24h}%</td>

@@ -2,7 +2,6 @@ import searchIcon from "../assets/search-icon.svg";
 import { useState, useContext } from 'react';
 import { CryptoContext } from './../context/CryptoContext';
 import debounce from "lodash.debounce";
-// import LoadingImg from './loading';
 
 
 const SearchInput = ({handleResult}) => {
