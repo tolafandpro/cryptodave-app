@@ -1,6 +1,11 @@
+import Filters from "../components/Filters";
+
 const Saved = () => {
     return ( 
-        <h3>This is the Saved page</h3>
+        <>
+            <Filters />
+            <h3>This is the Saved page</h3>
+        </>
      );
 }
  
