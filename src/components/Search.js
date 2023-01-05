@@ -36,7 +36,7 @@ const SearchInput = ({handleResult}) => {
                 </form>
                 {
                     searchText.length > 0 ? (
-                    <ul className="absolute top-11 right-0 w-96 h-96 rounded overflow-x-hidden py-2 bg-gray-200 bg-opacity-60 backdrop-blur-sm">
+                    <ul className="absolute top-11 right-0 w-96 h-96 rounded overflow-x-hidden py-2 bg-gray-200 bg-opacity-60 backdrop-blur-sm scrollbar-thin scrollbar-thumb-Pneon-100 scrollbar-track-gray-200">
                            {
                             searchData ? searchData.map((coin) => {return <li key={coin.id} onClick={() => selectCoin(coin.id)} className="flex ml-4 items-center my-2 cursor-pointer">
                                 <img className="w-[1rem] h-[1rem] mx-1.5" src={coin.thumb} alt={coin.name} />

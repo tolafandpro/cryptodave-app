@@ -5,8 +5,9 @@ export const CryptoContext = createContext({});
 
 // create the provider component
 export const CryptoProvider = ({children}) => {
-    const [cryptoData, setCryptoData] = useState();
+    const [cryptoData, setCryptoData] = useState(); // This state get all data from the CoinGecko api and serves as the base api
     const [searchData, setSearchData] = useState();
+    const [coinData, setCoinData] = useState();
     const [coinSearch, setCoinSearch] = useState("");
     
     
@@ -17,18 +18,20 @@ export const CryptoProvider = ({children}) => {
     const [perPage, setPerPage] = useState(10);
 
 
-    // const getCoinData = async () => {
-    //     try {
-    //         const data = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`)
-    //         .then(res => res.json())
-    //         .then(json => json);
+    const getCoinData = async (coinid) => {
+        try {
+            const data = await fetch(`https://api.coingecko.com/api/v3/coins/${coinid}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=true&sparkline=false`)
+            .then(res => res.json())
+            .then(json => json);
 
-    //         setCryptoData(data);
+            console.log("CoinData", data);
+            setCoinData(data);
 
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     const getCryptoData = async () => {
         try {
             const data = await fetch(`https://api.coingecko.com/api/v3/coins/list`)
@@ -76,7 +79,7 @@ export const CryptoProvider = ({children}) => {
     }, [coinSearch, currency, sortBy, pagination, perPage])
 
     return (
-        <CryptoContext.Provider value={{cryptoData, searchData, getSearchResult, setCoinSearch, setSearchData, currency, setCurrency, sortBy, setSortBy, pagination, setPagination, totalPages, resetFunction, setPerPage}}>
+        <CryptoContext.Provider value={{cryptoData, searchData, getSearchResult, setCoinSearch, setSearchData, currency, setCurrency, sortBy, setSortBy, pagination, setPagination, totalPages, resetFunction, perPage, setPerPage, coinData, getCoinData}}>
             {children}
         </CryptoContext.Provider>
     );
