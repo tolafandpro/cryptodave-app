@@ -1,0 +1,47 @@
+import React from 'react'
+import { useNavigate } from 'react-router-dom';
+
+const TrendingCoin = ({data}) => {
+
+   let navigate =  useNavigate();
+
+   const getCoinDetails = (id) => {
+        navigate(id);
+   }
+
+  return (
+    <div className='w-[40%]  mb-12 rounded-lg
+     p-4 relative cursor-pointer hover:bg-opacity-40 hover: bg-gray-200'
+     onClick={() => getCoinDetails(data.id)}
+    >{data ? 
+        <>
+            <h3 className='txt-base flex items-center my-0.5'>
+            <span className='text-gray-100 capitalize'>name:&nbsp;</span>
+            <span className='text-Pneon-50'>{ data.name}</span>
+            <img className='w-[1.5rem] h-[1.5rem] mx-2 rounded-full' src={data.small} alt={data.name} />
+        </h3>
+
+        <h3 className='txt-base flex items-center my-0.5'>
+            <span className='text-gray-100 capitalize'>market cap rank:&nbsp;</span>
+            <span className='text-Pneon-50'>{ data.market_cap_rank}</span>
+        </h3>
+        <h3 className='txt-base flex items-center my-0.5'>
+            <span className='text-gray-100 capitalize'>price (in btc):&nbsp;</span>
+            <span className='text-Pneon-50'>
+            {
+                new Intl.NumberFormat("en-NG", {style: "currency",  currency:"btc", maximumSignificantDigits: 5,}).format(data.price_btc)
+            }</span>
+        </h3>
+        <h3 className='txt-base flex items-center my-0.5'>
+            <span className='text-gray-100 capitalize'>score:&nbsp;</span>
+            <span className='text-Pneon-50'>{ data.score}</span>
+        </h3>
+        <img className='w-[20%] h-auto rounded-full absolute top-2/4 -right-12 -translate-y-2/4' src={data.small} alt={data.name} />
+        </>
+        : null
+        }
+    </div>
+  )
+}
+
+export default TrendingCoin

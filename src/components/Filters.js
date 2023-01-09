@@ -2,6 +2,7 @@ import Search from "./Search";
 import SubmitImg from "../assets/submit-icon.svg";
 import selectIcon from "../assets/select-icon.svg";
 import resetIcon from "../assets/reset.svg";
+// import ResetIcon from "../assets/reset";
 import { useContext, useRef } from "react";
 import { CryptoContext } from "../context/CryptoContext";
 
@@ -74,6 +75,7 @@ const Filters = () => {
           onClick={resetFunction}
           className="w-[2rem] ml-4 hover:scale-110 transition-all transition-ease relative right-0 top-0"
         >
+          {/* <ResetIcon className="w-200 h-200" /> */}
           <img className="w-full h-full" src={resetIcon} alt="reset" />
         </button>
       </div>
