@@ -79,16 +79,18 @@ const Chart = ({ id }) => {
         let convertedData = data[type].map((item) => {
           return {
             date: new Date(item[0]).toLocaleDateString(),
-            prices: item[1],
-          };
+            [type]: item[1],
+          }
         });
 
         console.log(convertedData);
         setChartData(convertedData);
+
       } catch (error) {
         console.log(error);
       }
     };
+
     getChartData(id);
   }, [id, type, days]);
 
@@ -112,7 +114,7 @@ const Chart = ({ id }) => {
               ? "bg-Pneon-100 text-Pneon-50"
               : "bg-gray-200 text-gray-100"
           }`}
-          onClick={() => setType("market_cap")}
+          onClick={() => setType("market_caps")}
         >
           Market Cap
         </button>

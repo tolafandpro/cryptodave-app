@@ -442,7 +442,13 @@ const CryptoDetalis = () => {
               )}
             </div>
           </div>
-        ) : null}
+        ) : 
+          
+        <div className="w-full min-h-[60vh] h-full flex justify-center items-center">
+          <div className="w-8 h-8 border-4 border-Pneon-50 rounded-full border-t-gray-200 animate-spin" role="status"/> <span className="ml-3">Please wait ...</span>
+        </div>
+          
+          }
       </div>
     </div>,
     document.getElementById("model")

@@ -38,7 +38,12 @@ const TrendingCoin = ({data}) => {
         </h3>
         <img className='w-[20%] h-auto rounded-full absolute top-2/4 -right-12 -translate-y-2/4' src={data.small} alt={data.name} />
         </>
-        : null
+        : 
+        
+        <div className="w-full h-full flex justify-center items-center">
+            <div className="w-8 h-8 border-4 border-Pneon-50 rounded-full border-t-gray-200 animate-spin" role="status"/> <span className="ml-3">Please wait ...</span>
+        </div>
+
         }
     </div>
   )

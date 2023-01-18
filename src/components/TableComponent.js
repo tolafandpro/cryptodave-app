@@ -1,15 +1,25 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { StorageContext } from "../context/StorageContext";
 import { CryptoContext } from './../context/CryptoContext';
 import Pagination from "./Pagination";
 
 
 const SavedBtn = ({data}) => {
+
+    const {saveCoin, allCoins, removeCoin } = useContext(StorageContext);
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        saveCoin(data.id);
+
+    }
     
     return(
-        <button className="outline-0 border-0 bg-none cursor-pointer">
+        <button className="outline-0 border-0 bg-none cursor-pointer" onClick={(e) => handleClick()}>
                                             <svg 
-                                                className="w-[1.5rem] ml-1.5 fill-gray-100 hover:fill-Pneon-50"
+                                                className={`w-[1.5rem] ml-1.5 fill-gray-100 hover:fill-Pneon-50
+                                                ${allCoins.includes(data.id)?"fill-Pneon-100" : "fill-gray-100"}`}
                                                 width="30" 
                                                 height="30" 
                                                 viewBox="0 0 30 30" 
@@ -30,7 +40,7 @@ const SavedBtn = ({data}) => {
 
                                             </button>
     )
-}
+};
 
 
 const TableComponent = () => {
@@ -59,7 +69,7 @@ const TableComponent = () => {
                                 return(
                                     <tr key={data.id} className="text-center text-base border-b border-gray-100 hover:bg-gray-200 last:border-b-0">
                                         <td className="py-4 flex items-center uppercase">
-                                            <SavedBtn data={data}/>
+                                            <SavedBtn data={data} />
                                             <img className="w-[1.2rem] h-[1.2rem] mx-1.5" src={data.image} alt={data.name} />
                                             <span>
                                                 <Link to={`/${data.id}`} className="cursor-pointer">
@@ -85,7 +95,12 @@ const TableComponent = () => {
                             })
                         }
                     </tbody>
-                </table> : null}
+                </table> : 
+                    // This is div is for the loading component
+                    <div className="w-full min-h-[60vh] h-full flex justify-center items-center">
+                                    <div className="w-8 h-8 border-4 border-Pneon-50 rounded-full border-t-gray-200 animate-spin" role="status"/> <span className="ml-3">Please wait ...</span>
+                    </div>
+                }
             </div>
 
             <div className="flex items-center justify-between mt-4 capitalize h-[2rem]">

@@ -45,8 +45,7 @@ const PerPage = () => {
 
 const Pagination = () => {
   // const [pagination, setPagination] = useState(1);
-  let { pagination, setPagination, totalPages, perPage, cryptoData } =
-    useContext(CryptoContext);
+  let { pagination, setPagination, totalPages, perPage, cryptoData } = useContext(CryptoContext);
 
   const TotalNumber = Math.ceil(totalPages / perPage);
 
@@ -83,7 +82,7 @@ const Pagination = () => {
     }
   };
 
-  if (cryptoData && cryptoData.lenght >= perPage) {
+  if (cryptoData && cryptoData.length >= perPage) {
     // <-- This statement is to disable the pagination when the length of coin is equal to one/ or one coin selected on the screen
     return (
       <div className="flex items-center">

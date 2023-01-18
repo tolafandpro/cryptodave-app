@@ -19,6 +19,7 @@ export const CryptoProvider = ({children}) => {
 
 
     const getCoinData = async (coinid) => {
+        setCoinData();
         try {
             const data = await fetch(`https://api.coingecko.com/api/v3/coins/${coinid}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=true&sparkline=false`)
             .then(res => res.json())
@@ -33,16 +34,19 @@ export const CryptoProvider = ({children}) => {
     }
 
     const getCryptoData = async () => {
-        try {
-            const data = await fetch(`https://api.coingecko.com/api/v3/coins/list`)
-            .then(res => res.json())
-            .then(json => json);
+        setCryptoData();
+        setTotalPages(13220); //Nuber of total coin gotten from CoinGecko  (the code below is ment to fetch list of coins from CoinGecko but was disable for perfomance purpose)
+        // try {
+        //     const data = await fetch(`https://api.coingecko.com/api/v3/coins/list`)
+        //     .then(res => res.json())
+        //     .then(json => json);
 
-            setTotalPages(data.length);
+        //     setTotalPages(data.length);
 
-        } catch (error) {
-            console.log(error)
-        }
+        // } catch (error) {
+        //     console.log(error);
+        // }
+
         try {
             const data = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&ids=${coinSearch}&order=${sortBy}&per_page=${perPage}&page=${pagination}&sparkline=false&price_change_percentage=1h%2C24h%2C7d`)
             .then(res => res.json())
