@@ -13,13 +13,20 @@ const SavedBtn = ({data}) => {
         e.preventDefault();
         saveCoin(data.id);
 
+        if(allCoins.includes(data.id)){
+            removeCoin(data.id)
+        }else{
+            saveCoin(data.id)
+        }
+
     }
     
     return(
-        <button className="outline-0 border-0 bg-none cursor-pointer" onClick={(e) => handleClick()}>
+        <button className="outline-0 border-0 bg-none cursor-pointer" onClick={(e) => handleClick(e)}>
                                             <svg 
-                                                className={`w-[1.5rem] ml-1.5 fill-gray-100 hover:fill-Pneon-50
-                                                ${allCoins.includes(data.id)?"fill-Pneon-100" : "fill-gray-100"}`}
+                                                className={`w-[1.5rem] ml-1.5 
+                                                ${allCoins.includes(data.id)?"fill-Pneon-50" : "fill-gray-100"}
+                                                fill-gray-100 hover:fill-Pneon-50`}
                                                 width="30" 
                                                 height="30" 
                                                 viewBox="0 0 30 30" 

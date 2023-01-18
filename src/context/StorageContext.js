@@ -8,7 +8,7 @@ export const StorageContext = createContext({});
 export const StorageProvider = ({children}) => {
    
     const [allCoins, setAllCoins] = useState([]);
-    // const [savedData, setSavedData] = useState([]);
+    const [savedData, setSavedData] = useState([]);
 
     let {currency, sortBy} = useContext(CryptoContext);
     
@@ -26,40 +26,40 @@ export const StorageProvider = ({children}) => {
         }
     }
 
-    // const removeCoin = (coinId) => {
-    //     let oldCoins = JSON.parse(localStorage.getItem("coins"));
+    const removeCoin = (coinId) => {
+        let oldCoins = JSON.parse(localStorage.getItem("coins"));
 
-    //     let newCoin = oldCoins.filter(coin => coin !== coinId);
+        let newCoin = oldCoins.filter(coin => coin !== coinId);
 
-    //     setAllCoins(newCoin);
-    //         localStorage.setItem("coins", JSON.stringify(newCoin));
-    // }
+        setAllCoins(newCoin);
+            localStorage.setItem("coins", JSON.stringify(newCoin));
+    }
 
-    // const getSavedData = async (totalCoins = allCoins) => {
+    const getSavedData = async (totalCoins = allCoins) => {
 
-    //     try {
-    //         const data = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&ids=${totalCoins.join(",")}&order=${sortBy}&sparkline=false&price_change_percentage=1h%2C24h%2C7d`)
-    //         .then(res => res.json())
-    //         .then(json => json);
+        try {
+            const data = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&ids=${totalCoins.join(",")}&order=${sortBy}&sparkline=false&price_change_percentage=1h%2C24h%2C7d`)
+            .then(res => res.json())
+            .then(json => json);
 
-    //         setSavedData(data);
+            setSavedData(data);
 
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // };
+        } catch (error) {
+            console.log(error)
+        }
+    };
 
-    // const resetSavedResult = () =>{
-    //     getSavedData();
-    // }
+    const resetSavedResult = () =>{
+        getSavedData();
+    }
  
-// useEffect(() => {
-//  if(allCoins.length > 0){
-//     getSavedData(allCoins);
-//  }else{
-//     setSavedData();
-//  }
-// }, [allCoins])
+useEffect(() => {
+ if(allCoins.length > 0){
+    getSavedData(allCoins);
+ }else{
+    setSavedData();
+ }
+}, [allCoins])
 
 
     useLayoutEffect(() => {
@@ -81,7 +81,7 @@ export const StorageProvider = ({children}) => {
     }, []);
  
     return (
-        <StorageContext.Provider value={{ saveCoin, allCoins, removeCoin, savedData, resetSavedResultallCoins, removeCoin, savedData, resetSavedResult }}>
+        <StorageContext.Provider value={{ saveCoin, allCoins, removeCoin, savedData, resetSavedResult, removeCoin, savedData, resetSavedResult }}>
             {children}
         </StorageContext.Provider>
     );
