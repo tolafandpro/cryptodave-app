@@ -85,7 +85,7 @@ const Pagination = () => {
   if (cryptoData && cryptoData.length >= perPage) {
     // <-- This statement is to disable the pagination when the length of coin is equal to one/ or one coin selected on the screen
     return (
-      <div className="flex items-center">
+      <div className="flex md:flex-row flex-col items-center justify-between  mt-4 capitalize h-[2rem]">
         <PerPage />
         <ul className="flex items-center justify-end text-sm">
           <li className="flex items-center">

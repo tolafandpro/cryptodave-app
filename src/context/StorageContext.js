@@ -81,7 +81,7 @@ useEffect(() => {
     }, []);
  
     return (
-        <StorageContext.Provider value={{ saveCoin, allCoins, removeCoin, savedData, resetSavedResult, removeCoin, savedData, resetSavedResult }}>
+        <StorageContext.Provider value={{ saveCoin, allCoins, removeCoin, savedData, resetSavedResult }}>
             {children}
         </StorageContext.Provider>
     );

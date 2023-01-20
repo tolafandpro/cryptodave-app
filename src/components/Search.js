@@ -28,8 +28,8 @@ const SearchInput = ({handleResult}) => {
 
     return (
     <>
-        <form className="w-96 relative flex items-center ml-7 font-nunito" onSubmit={handleSearchSubmite}>
-                    <input name="search" type="text" value={searchText} onChange={handleSearch} className="w-full rounded bg-gray-200 placeholder:text-gray pl-2 required outline-0 border border-transparent focus:border-Pneon-50" placeholder="Search here..." />
+        <form className="xl:w-96 lg:w-60 w-full relative flex items-center  lg:ml-7  font-nunito" onSubmit={handleSearchSubmite}>
+                    <input name="search" type="text" value={searchText} onChange={handleSearch} className="w-full rounded bg-gray-200 placeholder:text-gray-100 pl-2 placeholder:text-base required outline-0 border border-transparent focus:border-Pneon-50" placeholder="Search here..." />
                     <button type="submit" className="absolute right-1">
                         <img src={searchIcon} alt="search" className="w-full h-auto" />
                     </button>

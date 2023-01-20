@@ -19,7 +19,7 @@ const SavedBtn = ({data}) => {
     }
     
     return(
-        <button className="outline-0 border-0 bg-none cursor-pointer" onClick={(e) => handleClick()}>
+        <button className="outline-0 border-0 bg-none cursor-pointer" onClick={(e) => handleClick(e)}>
                                             <svg 
                                                 className={`w-[1.5rem] ml-1.5 fill-gray-100 hover:fill-Pneon-50
                                                 ${allCoins.includes(data.id)?"fill-Pneon-100" : "fill-gray-100"}`}
@@ -61,18 +61,18 @@ const Saved = () => {
                         <thead className="capitalize text-base text-gray-100 font-medium border-b border-gray-100">
                             <tr>
                                 <th className="py-1">assest</th>
-                                <th className="py-1">name</th>
+                                <th className="py-1 sm:table-cell hidden">name</th>
                                 <th className="py-1">price</th>
-                                <th className="py-1">total volume</th>
-                                <th className="py-1">market cap change</th>
-                                <th className="py-1">1H</th>
-                                <th className="py-1">24H</th>
-                                <th className="py-1">7D</th>
+                                <th className="py-1 md:table-cell hidden">total volume</th>
+                                <th className="py-1 sm:table-cell hidden">market cap change</th>
+                                <th className="py-1 lg:table-cell hidden">1H</th>
+                                <th className="py-1 lg:table-cell hidden">24H</th>
+                                <th className="py-1 lg:table-cell hidden">7D</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
-                                savedData.map(data => {
+                                savedData.map((data) => {
                                     return(
                                         <tr key={data.id} className="text-center text-base border-b border-gray-100 hover:bg-gray-200 last:border-b-0">
                                             <td className="py-4 flex items-center uppercase">
@@ -84,7 +84,7 @@ const Saved = () => {
                                                     </Link>
                                                 </span>
                                             </td>
-                                            <td className="py-4">
+                                            <td className="py-4 cursor-pointer sm:table-cell hidden">
                                                 <Link to={`/${data.id}`} className="cursor-pointer">
                                                     {data.name}
                                                 </Link>
@@ -92,11 +92,11 @@ const Saved = () => {
                                             <td className="py-4">{
                                                 new Intl.NumberFormat("en-NG", {style: "currency", currency}).format(data.current_price)
                                             }</td>
-                                            <td className="py-4">{data.total_volume}</td>
-                                            <td className="py-4">{data.market_cap_change_percentage_24h}%</td>
-                                            <td className={data.price_change_percentage_1h_in_currency > 0 ? 'text-green py-4' : 'text-red py-4'}>{Number(data.price_change_percentage_1h_in_currency).toFixed(2)}</td>
-                                            <td className={data.price_change_percentage_24h_in_currency > 0 ? 'text-green py-4' : 'text-red py-4'}>{Number(data.price_change_percentage_24h_in_currency).toFixed(2)}</td>
-                                            <td className={data.price_change_percentage_7d_in_currency > 0 ? 'text-green py-4' : 'text-red py-4'}>{Number(data.price_change_percentage_7d_in_currency).toFixed(2)}</td>
+                                            <td className="py-4 sm:table-cell hidden">{data.total_volume}</td>
+                                            <td className="py-4 md:table-cell hidden text-red">{data.market_cap_change_percentage_24h}%</td>
+                                            <td className={data.price_change_percentage_1h_in_currency > 0 ? 'text-green py-4 lg:table-cell hidden' : 'text-red py-4 lg:table-cell hidden'}>{Number(data.price_change_percentage_1h_in_currency).toFixed(2)}</td>
+                                            <td className={data.price_change_percentage_24h_in_currency > 0 ? 'text-green py-4 lg:table-cell hidden' : 'text-red py-4 lg:table-cell hidden'}>{Number(data.price_change_percentage_24h_in_currency).toFixed(2)}</td>
+                                            <td className={data.price_change_percentage_7d_in_currency > 0 ? 'text-green py-4 lg:table-cell hidden' : 'text-red py-4 lg:table-cell hidden'}>{Number(data.price_change_percentage_7d_in_currency).toFixed(2)}</td>
                                         </tr>
                                     )
                                 })
