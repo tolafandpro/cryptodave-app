@@ -1,19 +1,16 @@
-# Crypto Website App: ⭐Feature Rich Crypto Screener App with Tailwind CSS
+# Crypto Website App: Feature Rich Crypto Screener App with Tailwind CSS
 
 This repository contains starter code for Crypto Screener Application in ReactJS. <br />
 
 View Demo👇: <br />
-https://#.app/ <br />
+https://cryptodave-app.vercel.app/ <br />
 
 ### Images of The Crypto Screener Website:
 
-![Crypto](https://github.com/codebucks27/CryptoBucks-A-crypto-screener-application/blob/main/Website-Images/Crypto.png)
-![Crypto-CryptoDetails](https://github.com/codebucks27/CryptoBucks-A-crypto-screener-application/blob/main/Website-Images/Crypto-CryptoDetails.png)
-![Trending](https://github.com/codebucks27/CryptoBucks-A-crypto-screener-application/blob/main/Website-Images/Trending.png)
-![Saved](https://github.com/codebucks27/CryptoBucks-A-crypto-screener-application/blob/main/Website-Images/Saved.png)
-![Trending-Mobile](https://github.com/codebucks27/CryptoBucks-A-crypto-screener-application/blob/main/Website-Images/Trending-Mobile.png)
-![Crypto-CryptoDetails-Mobile](https://github.com/codebucks27/CryptoBucks-A-crypto-screener-application/blob/main/Website-Images/Crypto-CryptoDetails-Mobile.png)
-![Crypto-Mobile](https://github.com/codebucks27/CryptoBucks-A-crypto-screener-application/blob/main/Website-Images/Crypto-Mobile.png)
+![Crypto](https://github.com/tolafandpro/cryptodave-app/blob/main/Website-Images/crytodave-home.png)
+![Crypto-CryptoDetails](https://github.com/tolafandpro/cryptodave-app/blob/main/Website-Images/coin-details.png)
+![Trending](https://github.com/tolafandpro/cryptodave-app/blob/main/Website-Images/trending-coins.png)
+![Saved](https://github.com/tolafandpro/cryptodave-app/blob/main/Website-Images/favourites.png)
 
 ### Resources Used in This Project
 
