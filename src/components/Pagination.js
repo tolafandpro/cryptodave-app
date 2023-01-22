@@ -18,14 +18,13 @@ const PerPage = () => {
 
   return (
     <form
-      className="relative flex items-center font-nunito mr-12"
+      className="relative flex items-center font-nunito mr-6"
       onSubmit={handleSubmit}
     >
       <label
         htmlFor="perpage"
         className="relative flex justify-center items-center mr-2 font-bold"
-      >
-        Per page:
+      > <span className="mr-2 lowercase">Per page:</span>
       </label>
       <input
         ref={inputRef}
@@ -85,9 +84,9 @@ const Pagination = () => {
   if (cryptoData && cryptoData.length >= perPage) {
     // <-- This statement is to disable the pagination when the length of coin is equal to one/ or one coin selected on the screen
     return (
-      <div className="flex md:flex-row flex-col items-center justify-between  mt-4 capitalize h-[2rem]">
+      <div className="flex md:flex-row flex-col items-center justify-between mt-4 capitalize h-[2rem]">
         <PerPage />
-        <ul className="flex items-center justify-end text-sm">
+        <ul className="flex items-center justify-end text-sm sm:mt-0 mt-4">
           <li className="flex items-center">
             <button
               className="outline-0 hover:text-Pneon-50 w-8"
